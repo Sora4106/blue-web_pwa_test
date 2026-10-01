@@ -1,0 +1,10 @@
+{
+  "name": "ESP32-CAM BLE 控制台",
+  "short_name": "ESP32 BLE",
+  "description": "測試 iPhone 與 ESP32-CAM 的 BLE 雙向 UTF-8 訊息傳輸。",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#091423",
+  "theme_color": "#091423",
+  "lang": "zh-Hant"
+}

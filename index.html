@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#091423" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="ESP32 BLE" />
+    <title>ESP32-CAM BLE 控制台</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">BLE UART TEST</p>
+        <h1>ESP32-CAM<br />訊息控制台</h1>
+        <p class="intro">使用 Nordic UART Service 與 ESP32-CAM 互傳 UTF-8 文字。</p>
+      </header>
+
+      <section class="connection-card" id="connection-card" aria-labelledby="connection-heading">
+        <span class="status-light" aria-hidden="true"></span>
+        <div>
+          <p class="status-label" id="connection-heading">連線狀態</p>
+          <p class="status-copy" id="connection-status" role="status">正在檢查藍牙支援…</p>
+        </div>
+        <button class="connect-button" id="connect-button" type="button">連接 ESP32-CAM</button>
+      </section>
+
+      <section class="notice" id="ios-notice" aria-live="polite" hidden>
+        <strong>iPhone 使用提醒</strong>
+        <p>
+          iPhone Safari 本身沒有 Web Bluetooth。請先安裝並啟用
+          <a href="https://beacio.com/" target="_blank" rel="noreferrer">beacio Safari 擴充功能</a>，
+          然後重新在 Safari 開啟此頁。
+        </p>
+      </section>
+
+      <section class="panel send-panel" aria-labelledby="send-heading">
+        <div class="panel-heading">
+          <p class="panel-kicker">手機 → ESP32-CAM</p>
+          <h2 id="send-heading">傳送訊息</h2>
+        </div>
+        <form class="message-form" id="message-form">
+          <label for="message">UTF-8 文字（最多 180 bytes）</label>
+          <div class="input-row">
+            <input id="message" maxlength="180" placeholder="例如：hello" autocomplete="off" disabled />
+            <button id="send-button" type="submit" disabled>傳送</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel log-panel" aria-labelledby="log-heading">
+        <div class="panel-heading">
+          <p class="panel-kicker">ESP32-CAM → 手機</p>
+          <h2 id="log-heading">接收紀錄</h2>
+        </div>
+        <ol class="message-log" id="message-log" aria-live="polite">
+          <li>等待連線到 ESP32-CAM BLE Test</li>
+        </ol>
+      </section>
+
+      <footer>Service UUID · 6E400001-B5A3-F393-E0A9-E50E24DCCA9E</footer>
+    </main>
+  </body>
+</html>
